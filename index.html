@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thugger Radio</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="http://w.soundcloud.com/player/api.js"></script>
+  <script src="https://connect.soundcloud.com/sdk-2.0.0.js"></script>
+
+  <link rel='shortcut icon' type='image/x-icon' href='/thug.ico' />
+  <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #29383B;
+      font-family: 'Fjalla One', sans-serif;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    .header {
+      background-color: #222627;
+      color: #ffffff;
+      padding: 10px;
+      text-align: center;
+
+      -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+      box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+    }
+
+    h1 {
+      padding: 0;
+      margin: 0;
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 15%;
+    }
+
+    .skip {
+      display: inline-block;
+
+      transition: background-color 2s ease;
+      background-color: #222627;
+      color: #ffffff;
+      padding: 10px 20px 10px 20px;
+
+      border: 2px solid #ffffff;
+
+    }
+
+    .skip:hover {
+      background-color: #29383B;
+      cursor:pointer;
+    }
+
+  </style>
+  <script>
+
+   $(document).ready(function() {
+
+    $(".content").hide();
+
+    SC.initialize({
+      client_id: "a771cf270b9125224a27a569fdddea01",
+    });
+
+    var urls = [];
+
+
+    var widget = SC.Widget(document.getElementById("soundcloud_widget"));
+
+    SC.get("/tracks", { q: "young thug", limit: "200"}, function(tracks) {
+      for(var i = 0; i < tracks.length; i++) {
+        urls.push(tracks[i].permalink_url);
+      }
+
+      playSong();
+      $(".content").show();
+    });
+
+    $(".skip").click(function() {
+      playSong();
+    });
+
+    widget.bind(SC.Widget.Events.FINISH, function(player) {
+      playSong();
+    });
+
+
+    function playSong() {
+      widget.load(urls[Math.floor((Math.random() * urls.length))], {auto_play: "true"});
+    }
+
+   });
+
+  </script>
+</head>
+<body>
+  <div class="header">
+    <h1>Thugger.me</h1>
+    <h2>The Best of Young Thug 24/7</h2>
+  </div>
+
+  <div class="content">
+    <iframe id="soundcloud_widget"
+        src="https://w.soundcloud.com/player/?url=&auto_play=true"
+        width="420"
+        height="120"
+        frameborder="no">
+    </iframe>
+
+    <br /><br />
+
+    <a class="skip">Skip</a>
+
+  </div>
+
+</body>
+</html>
