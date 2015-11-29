@@ -1,83 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Andrew Brooke</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<title>Andrew Brooke - Developer</title>
 
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			
+			width: 100%;
+			font-family: 'Roboto', sans-serif;	
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $(".page:nth-of-type(1)").css("background-color","#2196F3");
-      $(".page:nth-of-type(2)").css("background-color","#03A9F4");
-      $(".page:nth-of-type(3)").css("background-color","#212121");
+			background-color: #111111;
+		}
+		
+		.section {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			min-height: 50vh;
+			text-align: center;
 
-      $("nav a").click(function() {
-        $('html, body').animate({
-            scrollTop: $( $.attr(this, 'href') ).offset().top
-        }, 500);
-        return false;
-      });
-    });
+			-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+			box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+		}
 
-  </script>
+		.content {
+			align-self:center;
+			width: 40%;
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+
+		.content > h1, .content > h2, .content > p {
+			margin: 0;
+			padding: 0;
+			color: white;
+		}
+
+		#header {
+			background: url(images/bg.png);
+		}
+
+		#me {
+			border-radius: 50%;
+			width: 20%;
+			height: width;
+			margin-top: 20px;
+			margin-bottom: 20px;
+
+			-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+			box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+		}
+
+		#about {
+			background-color: #111111;
+		}
+
+		#things {
+			background-color: #212121;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	</script>
 
 </head>
+
 <body>
 
-<nav class="material">
-  <a href="#about">Andrew Brooke</a>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#contact">Contact</a>
-</nav>
+	<div class="section" id="header">
+		<div class="content">
+			<h1>Hi. My name is Andrew.</h1>
+			<img id="me" src="images/me.jpg" />
+			<div id="links">
+				<a href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
+				<a href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
+				<a href="https://soundcloud.com/rhichie"><img src="images/soundcloud.png"></a>
+			</div>
+		</div>
+	</div>
 
-<div class="page" id="about">
-  <div class="content">
-    <h1 class="content_header">About Me</h1>
-    <br />
-    <p class="content_p">Hi there! My name is Andrew, and I'm a software developer.</p>
-    <br />
-    <p class="content_p">I am currently a second year student at the University of Cincinnati, where I am studying Computer Science. I like to code, play video games, and make music.</p>
-    <br />
-    <p class="content_p">I am mainly a Java programmer, currently working on Android applications.</p>
-    <br />
-    <p class="content_p">Thanks for visiting my site!</p>
-    <br />
-    <br />
+	<div class="section" id="about">
+		<div class="content">
+			<h1>Who am I?</h1>
+			<br />
+			<p>My name is Andrew, and I’m an aspiring developer! I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me working on my own projects, playing my favorite video games, or perhaps working on music. Whatever it may be, I strive to be passionate at what I do.</p>
+			<br />
+			<br />
+			<h1>My Experience</h1>
+			<br />
+			<h2>May 2015 - Present</h2>
+			<h2>Trayak LLC - Software Developer COOP</h2>
+			<br />
+			<p>For my first COOP term at the University of Cincinnati, I joined the Software Development team at Trayak, a startup company in Mason, Ohio. Here, I have taken the role as a lead developer of the Android side of a mobile client-server application. I have implemented my skills in Java on native Android code, as well as RESTful APIs on the server side. For this project, I have also developed a NodeJS server to track and store usage statistics in MongoDB, as well as build a webpage using HTML, CSS, and jQuery to view those statistics.
+			<br />
+			<br />
+			<h1>My Education</h1>
+			<br />
+			<p>I am currently a student at the University of Cincinnati studying Computer Science. I am on track to graduate with a Bachelor's of Science in 2019. I have done well academically, averaging a GPA of 3.756 / 4.000, and maintaining status on the Dean's List for each semester I have been in class.</p>
+		</div>
+	</div>
 
-    <div class="links">
-      <a href="https://github.com/andrewbrooke"><img src="images/github-circle.png" ></a>
-      <a href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png" ></a>
-      <a href="https://soundcloud.com/rhichie"><img src="images/soundcloud.png" ></a>
-    </div>
-
-  </div>
-</div>
-
-<div class="page" id="portfolio">
-  <div class="content">
-    <h1 class="content_header">Things I've Done</h1>
-    <br />
-    <a href="http://thugger.me">thugger.me</a>
-    <br />
-    <br />
-    <h3>a Young Thug playlist generator using the Soundcloud API</h3>
-  </div>
-</div>
-
-<div class="page" id="contact">
-  <div class="content">
-    <h1 class="content_header">Get in Touch</h1>
-    <br />
-    <p class="content_p">Feel free to shoot me an email!</p>
-    <br />
-    <p class="content_p">andrewbrooke15@gmail.com</p>
-  </div>
-</div>
+	<div class="section" id="things">
+		<div class="content">
+			<h1>Some things I've done</h1>
+			<br />
+			<h2>Coming soon! (It's a secret!)</h2>
+		</div>
+	</div>
 
 </body>
+
 </html>
