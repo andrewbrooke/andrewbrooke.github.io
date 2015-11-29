@@ -20,6 +20,7 @@
 			-moz-osx-font-smoothing: grayscale;
 
 			background-color: #111111;
+			color: #212121;
 		}
 		
 		.section {
@@ -29,19 +30,19 @@
 			min-height: 50vh;
 			text-align: center;
 
-			-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-			-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-			box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+			-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+			box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
 		}
 
 		.content {
 			align-self:center;
 			width: 40%;
-			padding-top: 25px;
-			padding-bottom: 25px;
+			padding-top: 50px;
+			padding-bottom: 50px;
 		}
 
-		.content > h1, .content > h2, .content > p {
+		.content.dark > h1, .content.dark > h2, .content.dark > p {
 			margin: 0;
 			padding: 0;
 			color: white;
@@ -65,10 +66,18 @@
 
 		#about {
 			background-color: #111111;
+
 		}
 
 		#things {
-			background-color: #212121;
+			background-color: #151515;
+		}
+
+		.screenshot {
+			max-width:100%;
+			max-height:100%;
+			margin-top: 10px;
+			margin-bottom: 10px;
 		}
 	</style>
 	
@@ -80,8 +89,8 @@
 <body>
 
 	<div class="section" id="header">
-		<div class="content">
-			<h1>Hi. My name is Andrew.</h1>
+		<div class="content dark">
+			<h1>Hi, My name is Andrew.</h1>
 			<img id="me" src="images/me.jpg" />
 			<div id="links">
 				<a href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
@@ -92,7 +101,7 @@
 	</div>
 
 	<div class="section" id="about">
-		<div class="content">
+		<div class="content dark">
 			<h1>Who am I?</h1>
 			<br />
 			<p>My name is Andrew, and I’m an aspiring developer! I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me working on my own projects, playing my favorite video games, or perhaps working on music. Whatever it may be, I strive to be passionate at what I do.</p>
@@ -113,10 +122,17 @@
 	</div>
 
 	<div class="section" id="things">
-		<div class="content">
+		<div class="content dark">
 			<h1>Some things I've done</h1>
 			<br />
-			<h2>Coming soon! (It's a secret!)</h2>
+			<a href="thugger.me"><img class="screenshot" src="images/thugger.png"/></a>
+			<h2>Thugger.me</h2>
+			<p>A small project I made using the SoundCloud Javascript API</p>
+			<br />
+			<br />
+			<br />
+			<br />
+			<h2>More coming soon!</h2>
 		</div>
 	</div>
 
