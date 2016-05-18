@@ -6,145 +6,178 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 	<title>Andrew Brooke - Developer</title>
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
-	<style type="text/css">
-		body {
-			margin: 0;
-			padding: 0;
-			
-			width: 100%;
-			font-family: 'Roboto', sans-serif;	
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-
-			background-color: #111111;
-			color: #212121;
-		}
-		
-		.section {
-			display: flex;
-			justify-content: center;
-			width: 100%;
-			min-height: 50vh;
-			text-align: center;
-
-			-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
-			-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
-			box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
-		}
-
-		.content {
-			align-self:center;
-			width: 40%;
-			padding-top: 50px;
-			padding-bottom: 50px;
-		}
-
-		.content.dark > h1, .content.dark > h2, .content.dark > p {
-			margin: 0;
-			padding: 0;
-			color: white;
-		}
-
-		#header {
-			background: url(images/bg.png);
-		}
-
-		#me {
-			border-radius: 50%;
-			width: 20%;
-			height: width;
-			margin-top: 20px;
-			margin-bottom: 20px;
-
-			-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-			-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-			box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-		}
-
-		#about {
-			background-color: #111111;
-
-		}
-
-		#things {
-			background-color: #151515;
-		}
-
-		.screenshot {
-			max-width:100%;
-			max-height:100%;
-			margin-top: 10px;
-			margin-bottom: 10px;
-		}
-
-		@media only screen and (max-device-width: 480px) {
-			.content { 
-				width: 80%;
-			}
-
-			#me {
-				width: 30%;
-			}
-		}
-	</style>
+	<link href='styles.css' rel='stylesheet' type='text/css'>
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	
 	<script type="text/javascript">
+		$(document).ready(function() {
+			$('a[href*="#"]:not([href="#"])').click(function() {
+				$('.header nav a').removeClass('active');
+				var href = $(this).attr('href')
+				$('.header nav a[href="' + href + '"]').addClass('active');
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html, body').animate({
+							scrollTop: target.offset().top - 100
+						}, 1000);
+						return false;
+					}
+				}
+			});
+
+			$(".header nav a:first").click();
+
+		});
 	</script>
 
 </head>
 
 <body>
+	
+	<div class="header">
+		<nav>
+			<a href="#about">about</a>
+			<a href="#resume">resume</a>
+			<a href="#portfolio">portfolio</a>
+		</nav>
+	</div>
 
-	<div class="section" id="header">
-		<div class="content dark">
-			<h1>Hi, My name is Andrew.</h1>
-			<img id="me" src="images/me.jpg" />
-			<div id="links">
-				<a href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
-				<a href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
-				<a href="https://soundcloud.com/rhichie"><img src="images/soundcloud.png"></a>
+	<div class="content">
+		<div class="section_wrapper" id="about">
+			<div class="section_content">
+				<h1>Hi, my name is Andrew</h1>
+				<h2>I'm a programmer, and a student</h2>
+				<div class="links">
+					<a href="https://github.com/andrewbrooke"><img src="images/github-circle.png"></a>
+					<a href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
+					<a href="https://soundcloud.com/rhichie"><img src="images/soundcloud.png"></a>
+				</div>
+				<br /><br /><br />
+				<a href="#resume"><img src="images/arrow-down.png"></a>
 			</div>
 		</div>
-	</div>
-
-	<div class="section" id="about">
-		<div class="content dark">
-			<h1>Who am I?</h1>
-			<br />
-			<p>My name is Andrew, and I’m an aspiring developer! I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me working on my own projects, playing my favorite video games, or perhaps working on music. Whatever it may be, I strive to be passionate at what I do.</p>
-			<br />
-			<br />
-			<h1>My Experience</h1>
-			<br />
-			<h2>May 2015 - Present</h2>
-			<h2>Trayak LLC - Software Developer COOP</h2>
-			<br />
-			<p>For my first COOP term at the University of Cincinnati, I joined the Software Development team at Trayak, a startup company in Mason, Ohio. Here, I have taken the role as a lead developer of the Android side of a mobile client-server application. I have implemented my skills in Java on native Android code, as well as RESTful APIs on the server side. For this project, I have also developed a NodeJS server to track and store usage statistics in MongoDB, as well as build a webpage using HTML, CSS, and jQuery to view those statistics.
-			<br />
-			<br />
-			<h1>My Education</h1>
-			<br />
-			<p>I am currently a student at the University of Cincinnati studying Computer Science. I am on track to graduate with a Bachelor's of Science in 2019. I have done well academically, averaging a GPA of 3.756 / 4.000, and maintaining status on the Dean's List for each semester I have been in class.</p>
+		<div class="divider"></div>
+		<div class="section_wrapper" id="resume">
+			<div class="section_content">
+				<h1>Formal Resume</h1>
+				<table>
+					<tr>
+						<td>
+							<h2>Experience</h2>
+							<p>May 2015 - Present</p>
+							<br/>
+							<p><b>Trayak LLC</b></p>
+							<br/>
+							<p>Software Developer Co-Op</p>
+							<br/><br/>
+							<p>Lead developer for mobile client server application. Wrote Java code for Android and RESTful APIs. Also developed a NodeJS server to track and store usage statistics in MongoDB. Built webpage in jQuery to view usage statistics.</p>
+							<br/><br/><br/>
+							
+							<p>2013 – 2014</p>
+							<br/>
+							<p><b>Freelance Web Developer</b></p>
+							<br/><br/>
+							<p>Designed websites for two local small businesses. Got experience communicating effectively with a client. Implemented skills in CSS, HTML, jQuery, and PHP.</p>
+						</td>
+						<td>
+							<h2>Education</h2>
+							<p>2014 - Present</p>
+							<br/>
+							<p><b>University of Cincinnati</b></p>
+							<br/>
+							<p>College of Engineering and Applied Science</p>
+							<br/><br/>
+							<p>Bachelor of Science in Computer Science, Class of 2019</p>
+							<br/>
+							<p>GPA: 3.829 / 4.000</p>
+							<br/>
+							<p>Dean’s List: Fall and Spring Semester 2014 – 2015</p>
+							<br/><br/><br/>
+							
+							<p>2010 - 2014</p>
+							<br/>
+							<p><b>Centerville High Scool</b></p>
+							<br/><br/>
+							<p>GPA: 4.07</p>
+							<br/>
+							<p>Rank: 107th / 715</p>
+							<br/>
+							<p>Graduated with Honors Diploma</p>
+							<br/>
+							<p>Member of National Honors Society</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h2>Skills</h2>
+							<p>Java Programming</p>
+							<br/>
+							<p>Android Application Development</p>
+							<br/>
+							<span>Experience with Android Lollipop and Marshmallow API's</span>
+							<br/>
+							<span>Lead Developer of an app published on the <a href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication&hl=en">Google Play Store</a></span>
+							<br/>
+							
+							<p>Web Development</p>
+							<br/>
+							<span>CSS, HTML, Javascript / jQuery</span>
+							<br/>
+							<span>NodeJS</span>
+							<br/>
+							<span>AngularJS (+ Angular Material)</span>
+							<br/>
+							
+							<p>Server Programming</p>
+							<br/>
+							<span>Java Hibernate</span>
+							<br/>
+							<span>PHP</span>
+							<br/>
+							
+							<p>Other Languages - Visual Basic, C#, C++, MATLAB</p>
+						</td>
+						<td>
+							<h2>Awards</h2>
+							<p>1st Place at Regional, State, and National levels of Business Professionals of America 2014 Visual Basic programming competition</p>
+							<br/><br/>
+							<p>5th Place / 20 in Miami University 2014 High School Programming Competition</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h2>About Me</h2>
+							<p>My name is Andrew Brooke, and I've been and I'm an aspiring developer. I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me developing my own projects, playing my favorite video games, or maybe making music. Whatever it may be, I strive to be passionate at what I do.</p>
+						</td>
+						<td class="center">
+							<h2>Contact</h2>
+							<p>andrewbrooke15@gmail.com</p>
+							<br/>
+							<p>github.com/andrewbrooke</p>
+							<br/>
+							<p>stackoverflow.com/cv/andrewbrooke</p>
+							<br/>
+							<p>linkedin.com/in/andrew-brooke</p>
+							<br/>
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
-	</div>
-
-	<div class="section" id="things">
-		<div class="content dark">
-			<h1>Some things I've done</h1>
-			<br />
-			<a href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication"><img class="screenshot" src="images/gizmo.PNG"/></a>
-			<h2>MyGizmo</h2>
-			<p>A project I worked on while working at Trayak. MyGizmo is a mobile application for Android and iOS that lets you manage and trade your smartphones, and other devices!</p>
-			<br />
-			<p>Check it out on the Google Play Store!</p>
-			<br /><br />
-			<a href="thugger.me"><img class="screenshot" src="images/thugger.PNG"/></a>
-			<h2>Thugger.me</h2>
-			<p>A small project I made using the SoundCloud Javascript API</p>
-			<br /><br />
+		<div class="divider"></div>
+		<div class="section_wrapper" id="portfolio">
+			<div class="section_content">
+				<h1>Portfolio</h1>
+				<a href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication"><img class="screenshot" src="images/gizmo.PNG"></a>
+				<h2>MyGizmo</h2>
+				<p>A project I worked on while working at Trayak. MyGizmo is a mobile application for Android and iOS that lets you manage and trade your smartphones, and other devices!</p>
+				<br /><br />
+				<a href="thugger.me"><img class="screenshot" src="images/thugger.PNG"></a>
+				<h2>Thugger.me</h2>
+				<p>A small project I made using the SoundCloud Javascript API</p>
+			</div>
 		</div>
 	</div>
 
