@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue-light_blue.min.css" />
 	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-	
+  
 	<script type="text/javascript">
 		$(document).ready(function() {
 			
@@ -23,6 +23,7 @@
 				return this; 
 			};
 			
+            var first = true;
 			$('.mdl-navigation a[href*="#"]:not([href="#"])').click(function(e) {
 				$('.mdl-navigation a').removeClass('active');
 				$(this).addClass('active');
@@ -33,10 +34,38 @@
 					return;
 				}
 				e.preventDefault();
-				$('main').scrollTo($id, 1000);
+				$('main').scrollTo($id, first ? 0 : 1000);
+                first = false;
 			});
+          
+            function isScrolledIntoView(elem) {
+                var docViewTop = $(window).scrollTop();
+                var docViewBottom = docViewTop + $(window).height();
+                var elemTop = $(elem).offset().top;
+                var elemBottom = elemTop + $(elem).height();
+              
+                return (elemTop <= docViewTop);
+            }
+          
+            $('main').scroll(function() {
+              var ids = ['#about', '#resume', '#portfolio'];
+              for (var i = 0; i < ids.length; i++) {
+                if (isScrolledIntoView($(ids[i]))) {
+                  $('.mdl-navigation a[href*="#"]:not([href="#"])').removeClass('active');
+                  $('.mdl-navigation a[href="' + ids[i] + '"').addClass('active');
+                }
+              }
+            });
+          
+//            $('.section_wrapper').waypoint(function() {
+//              console.log('ack');
+//              var href = '#' + $(this).id();
+//              $('.mdl-navigation a[href*="#"]:not([href="#"])').removeClass('active');
+//              $('.mdl-navigation a[href="' + href + '"').addClass('active');
+//            });
 
-			$(".mdl-navigation a:first").click();
+			$('.mdl-navigation a:first').click();
+          
 
 		});
 	</script>
@@ -65,43 +94,61 @@
 			<div class="page-content">
 				<div class="section_wrapper" id="about">
 					<div class="section_content mdl-card mdl-shadow--2dp">
-						<h2>Hi, my name is Andrew!</h2>
-						<h4>
-							I'm in my third year of college at the University of Cincinnati, and I've been coding since highschool. My preferred languages are Java and Javascript (Node.js, Express, MongoDB stack <3)
-						</h4>
-						<h4>Let me show you a little bit about myself!</h4>
+						<h3>Hi, my name is Andrew!</h3>
+						<h5>
+							I'm in my third year of college at the University of Cincinnati, and I've been coding since highschool. My preferred languages are Java (Android) and Javascript (Node.js, Express, MongoDB stack)
+						</h5>
+						<h5>Scroll down to learn a little bit more about me</h5>
 						<br>
 						<div class="links">
 							<a href="https://github.com/andrewbrooke"><img src="images/github-circle.png"></a>
 							<a href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
 							<a href="https://soundcloud.com/rhichie"><img src="images/soundcloud.png"></a>
 						</div>
-						<br><br>
-						<a href="#resume" id="arrow"><img src="images/arrow-down.png"></a>
 					</div>
 				</div>
 				<div class="divider"></div>
 				<div class="section_wrapper" id="resume">
 					<div class="section_content mdl-card mdl-shadow--2dp">
-						<h1>Formal Resume</h1>
+						<h1>Resume</h1>
 						<table>
 							<tr>
 								<td>
 									<h2>Experience</h2>
-									<p>May 2015 - Present</p>
+									<p>May 2015 - August 2016</p>
 									<br/>
 									<p><b>Trayak LLC</b></p>
 									<br/>
 									<p>Software Developer Co-Op</p>
 									<br/><br/>
-									<p>Lead developer for mobile client server application. Wrote Java code for Android and RESTful APIs. Also developed a NodeJS server to track and store usage statistics in MongoDB. Built webpage in jQuery to view usage statistics.</p>
+                                    <p>Lead developer for Android application</p>
+                                    <p>&nbsp;&nbsp;- Client written in Java, server API’s in Java (Hibernate / SQL)</p>
+									<p>Developed analysis platform for app usage statistics</p>
+									<p>&nbsp;&nbsp;- NodeJS server to collect statistics, stored in MongoDB.</p>
+									<p>&nbsp;&nbsp;- Built dynamic webpage to view statistics jQuery & Chart.JS.</p>
+									<p>Lead developer for AngularJS web-application with PHP backend</p>
+									<p>&nbsp;&nbsp;-  Wrote unit / e2e tests, configured deployment using Bamboo.</p>
 									<br/><br/><br/>
 
 									<p>2013 – 2014</p>
 									<br/>
 									<p><b>Freelance Web Developer</b></p>
 									<br/><br/>
-									<p>Designed websites for two local small businesses. Got experience communicating effectively with a client. Implemented skills in CSS, HTML, jQuery, and PHP.</p>
+									<p>Developed websites for two local small businesses</p>
+									<p>&nbsp;&nbsp;- Got experience with web design using HTML, CSS, JS, PHP.</p>
+									<p>&nbsp;&nbsp;- Developed skills in communicating effectively with a client</p>
+									<br/><br/><br/>
+
+									<p><b>Personal Projects</b></p>
+									<br/><br/>
+                                    <p>Development of a native Android 2D game</p>
+                                    <p>&nbsp;&nbsp;- Modern Android L/M/N conventions</p>
+                                    <p>&nbsp;&nbsp;- Firebase & Google Play Services</p>
+                                    <p>Development of a multiplayer game using Javascript / HTML5</p>
+                                    <p>&nbsp;&nbsp;- NodeJS/Express app with user login functionality</p>
+                                    <p>&nbsp;&nbsp;- Analysis platform built with Node, MongoDB, jQuery</p>
+									<p>Meteor application running AngularJS</p>
+									<p>Personal website, several small web-apps, Android apps</p>
 								</td>
 								<td>
 									<h2>Education</h2>
@@ -113,9 +160,9 @@
 									<br/><br/>
 									<p>Bachelor of Science in Computer Science, Class of 2019</p>
 									<br/>
-									<p>GPA: 3.829 / 4.000</p>
+									<p>Dean’s List</p>
 									<br/>
-									<p>Dean’s List: Fall and Spring Semester 2014 – 2015</p>
+									<p>GPA: 3.829 / 4.000</p>
 									<br/><br/><br/>
 
 									<p>2010 - 2014</p>
@@ -134,32 +181,15 @@
 							<tr>
 								<td>
 									<h2>Skills</h2>
-									<p>Java Programming</p>
-									<br/>
-									<p>Android Application Development</p>
-									<br/>
-									<span>Experience with Android Lollipop and Marshmallow API's</span>
-									<br/>
-									<span>Lead Developer of an app published on the <a href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication&hl=en">Google Play Store</a></span>
-									<br/>
-
-									<p>Web Development</p>
-									<br/>
-									<span>CSS, HTML, Javascript / jQuery</span>
-									<br/>
-									<span>NodeJS</span>
-									<br/>
-									<span>AngularJS (+ Angular Material)</span>
-									<br/>
-
-									<p>Server Programming</p>
-									<br/>
-									<span>Java Hibernate</span>
-									<br/>
-									<span>PHP</span>
-									<br/>
-
-									<p>Other Languages - Visual Basic, C#, C++, MATLAB</p>
+									<p><b>Object Oriented Programming: </b>Java, C++, C#, Visual Basic</p>
+									<br>
+									<p><b>Web Development: </b>AngularJS, Meteor, jQuery, HTML, CSS / SASS</p>
+									<br>
+									<p><b>Databases: </b>MySQL, MongoDB</p>
+									<br>
+									<p><b>Mobile Development: </b>Java, C++, C#, Visual Basic</p>
+									<br>
+									<p><b>Software / Other: </b>Agile Development, Git, Jira, Bamboo, Gulp, Windows, Linux, MATLAB</p>
 								</td>
 								<td>
 									<h2>Awards</h2>
@@ -171,7 +201,7 @@
 							<tr>
 								<td>
 									<h2>About Me</h2>
-									<p>My name is Andrew Brooke, and I've been and I'm an aspiring developer. I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me developing my own projects, playing my favorite video games, or maybe making music. Whatever it may be, I strive to be passionate at what I do.</p>
+									<p>My name is Andrew Brooke, and I'm an aspiring developer. I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me developing my own projects, playing my favorite video games, or maybe making music. Whatever it may be, I strive to be passionate at what I do.</p>
 								</td>
 								<td class="center">
 									<h2>Contact</h2>
@@ -192,18 +222,20 @@
 				<div class="section_wrapper" id="portfolio">
 					<div class="section_content mdl-card mdl-shadow--2dp">
 						<h1>Portfolio</h1>
-						<a href="https://dodger.io"><img class="screenshot" src="images/dodger.PNG"></a>
+						<h2>Life</h2>
+						<p>Life is an Android puzzle game I'm actively developing. It's a neat little game based on Conway's Game of Life, and should be out on the Play Store soon.</p>
+                        <p>Technologies used for this project include native Android, Firebase, as well as Google Play Services implementation.</p>
+						<a><img class="screenshot mobile gif" src="images/life.gif"></a>
+						<br /><br />
 						<h2>Dodger.io</h2>
-						<p>Dodger.io is a Javascript game that I'm currently developing with my roommate. It's a fun little endless runner game with a twist, multiplayer! Check it out!</p>
+						<p>Dodger.io is a Javascript game that I'm developing with my roommate. It's a fun little endless runner game with a twist, multiplayer!</p>
 						<p>The game is using the HTML5 Canvas element for client-side rendering, with a websocket connection to our Node.js server.</p>
+                        <p>For this project I also built a backend admin analysis platform with Javascript and jQuery. It accesses the games internal API's to retrieve data and statistics from the MongoDB database.</p>
+						<a href="https://dodger.io"><img class="screenshot" src="images/dodger.PNG"></a>
 						<br /><br />
-						<a href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication"><img class="screenshot" src="images/gizmo.PNG"></a>
 						<h2>MyGizmo</h2>
-						<p>A project I worked on while working at Trayak. MyGizmo is a mobile application for Android and iOS that lets you manage and trade your smartphones, and other devices!</p>
-						<br /><br />
-						<a href="thugger.me"><img class="screenshot" src="images/thugger.PNG"></a>
-						<h2>Thugger.me</h2>
-						<p>A small project I made using the SoundCloud Javascript API</p>
+						<p>A project I worked on while working at Trayak. MyGizmo is a mobile application for Android and iOS that lets you manage and trade your smartphones, and other devices. Some of the technologies I worked on for this project include: native Android development, Java server implementation with MySQL database (Hibernate), Javascript (jQuery), NodeJS.</p>
+						<a href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication"><img class="screenshot" src="images/gizmo.PNG"></a>
 					</div>
 				</div>
 			</div>
