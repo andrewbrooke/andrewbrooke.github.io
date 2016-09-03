@@ -28,7 +28,7 @@ h5 {
 }
 .mdl-layout__drawer-button {
 	color: white;
-	background-color: rgba(0, 0, 0, .54);
+	background-color: rgba(0,0,0, .54);
 }
 .mdl-layout__drawer-button i {
 	top: 25%;
@@ -166,9 +166,9 @@ td.center p {
 		margin: 0 auto;
 		width: 98%;
 	}
-	.section_content {
+	.section_content, #about > .section_content {
 		padding: 8px;
-		width: 98%;
+		width: 95% !important;
 	}
 	.section_content table td:first-child {
 		padding-right: 0;
@@ -178,5 +178,10 @@ td.center p {
 	}
     .screenshot.mobile {
       max-width: 90%;
-    }
+    } 
+
+
 }
+
+ @media screen and (max-width: 1024px) {
+.mdl-layout__drawer-button { color: rgba(255,255,255,.5) !important; } }
