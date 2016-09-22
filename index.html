@@ -3,61 +3,62 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>Andrew Brooke - Developer</title>
 
-	<link href='styles.css' rel='stylesheet' type='text/css'>
-	<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<link type="text/css" href="css/hamburger.css" rel="stylesheet">
+	<link href='css/styles.css' rel='stylesheet' type='text/css'>
+	<link type="text/css" href="lib/slick/slick.css" rel="stylesheet"/>
 	
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue-light_blue.min.css" />
-	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="lib/slick/slick.min.js"></script>
   
 	<script type="text/javascript">
 		$(document).ready(function() {
 			
-			jQuery.fn.scrollTo = function(elem, speed) { 
-				$(this).animate({
-					scrollTop:  $(this).scrollTop() - $(this).offset().top + $(elem).offset().top 
-				}, speed == undefined ? 1000 : speed); 
-				return this; 
-			};
-			
-            var first = true;
-			$('.mdl-navigation a[href*="#"]:not([href="#"])').click(function(e) {
-				$('.mdl-navigation a').removeClass('active');
-				$(this).addClass('active');
-				
-				var id = $(this).attr('href');
-				var $id = $(id);
-				if ($id.length === 0) {
-					return;
+			$('#mobile_nav_toggle').on('click', function() {
+				$('#mobile_nav_toggle .hamburger').toggleClass('is-active');
+				if (document.body.classList.contains('hamburgler-active')) {
+					document.body.classList.remove('hamburgler-active');
+				} else {
+					document.body.classList.add('hamburgler-active');
 				}
-				e.preventDefault();
-				$('main').scrollTo($id, first ? 0 : 1000);
-                first = false;
 			});
-          
-            function isScrolledIntoView(elem) {
-                var docViewTop = $(window).scrollTop();
-                var docViewBottom = docViewTop + $(window).height();
-                var elemTop = $(elem).offset().top;
-                var elemBottom = elemTop + $(elem).height();
-              
-                return (elemTop <= docViewTop);
-            }
-          
-            $('main').scroll(function() {
-              var ids = ['#about', '#resume', '#portfolio'];
-              for (var i = 0; i < ids.length; i++) {
-                if (isScrolledIntoView($(ids[i]))) {
-                  $('.mdl-navigation a[href*="#"]:not([href="#"])').removeClass('active');
-                  $('.mdl-navigation a[href="' + ids[i] + '"').addClass('active');
-                }
-              }
-            });
 
-			$('.mdl-navigation a:first').click();
+			window.addEventListener("keyup", function(e) {
+				if (e.keyCode == 27) document.body.classList.remove('hamburgler-active');
+			}, false);
+
+			var animating = false;
+			$('.nav_link').on('click', function(e) {
+				e.preventDefault();
+				var href = $(this).attr('href');
+
+				$('#header nav a h4').removeClass('active');
+				$('#header nav a[href="' + href + '"] h4').addClass('active');
+
+				var animationTime = 0;
+				if ($(window).width() > 680)
+					animationTime = 1000;
+
+				$('html, body').stop(true, false);
+
+				animating = true;
+				$('html, body').animate({
+					scrollTop: $(href).offset().top
+				}, animationTime, function() {
+					animating = false;
+				});
+				$('#mobile_nav_toggle .hamburger').removeClass('is-active');
+				document.body.classList.remove('hamburgler-active');
+			});
+			
+			$('.portfolio_slider').slick({
+				arrows: true,
+				prevArrow: $('.portfolio_prev'),
+				nextArrow: $('.portfolio_next'),
+  				adaptiveHeight: true
+			});
 
 		});
 	</script>
@@ -65,170 +66,179 @@
 </head>
 
 <body>
-	
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-color--grey-100 mdl-color-text--grey-600">
-		<div class="mdl-layout__drawer mdl-color--grey-900 mdl-color-text--white mdl-shadow--4dp">
-			<div id="dashboard_header">
-				<img src="images/me.png" id="dashboard_icon">
-				<br><br>
-				<span class="mdl-layout-title">Andrew Brooke</span>
-			</div>
-			<nav class="mdl-navigation">
-				<a class="mdl-navigation__link nav_item" href="#about">About</a>
-				<a class="mdl-navigation__link nav_item" href="#resume">Resume</a>
-				<a class="mdl-navigation__link nav_item" href="#portfolio">Portfolio</a>
-			</nav>
+	<div id="mobile_nav">
+  		<div>
+			<a style="text-decoration: none" href="#about" class="nav_link"><h1>About Me</h1></a>
+			<a style="text-decoration: none" href="#portfolio" class="nav_link"><h1>Portfolio</h1></a>
+			<a style="text-decoration: none" href="#contact" class="nav_link"><h1>Contact</h1></a>
+			<a style="text-decoration: none" target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h1>Resume</h1></a>
 		</div>
-		<main class="mdl-layout__content">
-			<div class="page-content">
-				<div class="section_wrapper" id="about">
-					<div class="section_content mdl-card mdl-shadow--2dp">
-						<h3>Hi, my name is Andrew!</h3>
-						<h5>My name is Andrew Brooke, and I'm an aspiring coder. I'm currently in my third year of school at the University of Cincinnati, studying Computer Science, and am on track to graduate in 2019. I started coding in highschool for fun, and am now interested in pursuing a career as a developer professionally. My favorite languages are Java (Android) and Javascript (NodeJS, Express, MongoDB)</h5>
-						<h5>I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me developing my own projects, playing my favorite video games, or maybe making music. Whatever it may be, I strive to be passionate at what I do.</h5>
-						<h5>Scroll down to learn a little bit more about me</h5>
+	</div>
+	
+	<div id="header">
+		<div id="logo">
+			<a href="#intro" class="nav_link"><h2>ANDREW BROOKE</h2></a>
+		</div>
+		<nav>
+			<a href="#about" class="nav_link"><h4>About Me</h4></a>
+			<a href="#portfolio" class="nav_link"><h4>Porfolio</h4></a>
+			<a href="#contact" class="nav_link"><h4>Contact</h4></a>
+			<a target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h4><img src="images/download.png">Resume</h4></a>
+		</nav>
+		<div id="mobile_nav_toggle">
+			<button class="hamburger hamburger--squeeze" type="button">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+		</div>
+	</div>
+	<div id="intro" class="section_wrapper">
+		<div class="section_content">
+			<table>
+				<tr>
+					<td style="width: 20%; vertical-align: middle;" class="hide_on_mobile">
+						<img id="me" src="images/me.png">
+					</td>
+					<td style="width: 80%">
+						<h1 class="section_header" style="text-align: left;">Andrew Brooke</h1>
+						<h1 class="section_subheader" style="text-align: left;">Fullstack Mobile & Web Developer</h1>
 						<br>
-						<div class="links">
-							<a href="https://github.com/andrewbrooke"><img src="images/github-circle.png"></a>
-							<a href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
-							<a href="https://soundcloud.com/rhichie"><img src="images/soundcloud.png"></a>
+						<div class="profile_links" style="text-align: left;">
+							<a target="_blank" href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
+							<a target="_blank" href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
+							<a target="_blank" href="https://www.linkedin.com/in/andrewbrooke15"><img src="images/linkedin.png"></a>
 						</div>
-					</div>
+					</td>
+				</tr>
+			</table>
+			<br><br><br>
+			<img href="#about" id="portfolio_arrow" class="nav_link" src="images/chevron-down.png">
+		</div>
+	</div>
+	
+	<div class="section_wrapper" id="about">
+		<div class="section_content">
+			<h1 class="section_subheader">About Me</h1>
+			<br>
+			<h3>
+				My name is Andrew Brooke, and I'm an aspiring coder. I'm currently in my third year of school at the University of Cincinnati, studying Computer Science, and am on track to graduate in 2019. I started coding in highschool for fun, and am now interested in pursuing a career as a developer professionally. My favorite languages are Java (Android) and Javascript (NodeJS, Express, MongoDB)
+			</h3>
+			<br>
+			<h3>
+				I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me developing my own projects, playing my favorite video games, or maybe making music. Whatever it may be, I strive to be passionate at what I do.
+			</h3>
+			<br><br>
+			<a href="#portfolio" class="nav_link" style="text-decoration: none;">
+				<div class="mtrl-button">
+					View My Portfolio
 				</div>
-				<div class="divider"></div>
-				<div class="section_wrapper" id="resume">
-					<div class="section_content mdl-card mdl-shadow--2dp">
-						<h1>Resume</h1>
+			</a>
+			<a href="#contact" class="nav_link" style="text-decoration: none;">
+				<div class="mtrl-button">
+					Get in Touch
+				</div>
+			</a>
+		</div>
+	</div>
+	
+	<div class="section_wrapper" id="portfolio">
+		<div class="section_content">
+			<br><br><br>
+			<div id="portfolio_controls_container" class="hide_on_mobile">
+				<img class="portfolio_controls portfolio_prev" src="images/chevron-left.png">
+				<img class="portfolio_controls portfolio_next" src="images/chevron-right.png">
+			</div>
+			<div class="portfolio_slider">
+				<div class="mtrl-card">
+					<div class="mtrl-card-header blue">
+						<h1 class="section_subheader">Life</h1>
+						<h1>Android</h1>
+					</div>
+					<div class="mtrl-card-content">
 						<table>
 							<tr>
-								<td>
-									<h2>Experience</h2>
-									<p>May 2015 - August 2016</p>
-									<br/>
-									<p><b>Trayak LLC</b></p>
-									<br/>
-									<p>Software Developer Co-Op</p>
-									<br/><br/>
-                                    <p>Lead developer for Android application</p>
-                                    <p>&nbsp;&nbsp;- Client written in Java, server API’s in Java (Hibernate / SQL)</p>
-									<p>Developed analysis platform for app usage statistics</p>
-									<p>&nbsp;&nbsp;- NodeJS server to collect statistics, stored in MongoDB.</p>
-									<p>&nbsp;&nbsp;- Built dynamic webpage to view statistics jQuery & Chart.JS.</p>
-									<p>Lead developer for AngularJS web-application with PHP backend</p>
-									<p>&nbsp;&nbsp;-  Wrote unit / e2e tests, configured deployment using Bamboo.</p>
-									<br/><br/><br/>
-
-									<p>2013 – 2014</p>
-									<br/>
-									<p><b>Freelance Web Developer</b></p>
-									<br/><br/>
-									<p>Developed websites for two local small businesses</p>
-									<p>&nbsp;&nbsp;- Got experience with web design using HTML, CSS, JS, PHP.</p>
-									<p>&nbsp;&nbsp;- Developed skills in communicating effectively with a client</p>
-									<br/><br/><br/>
-
-									<p><b>Personal Projects</b></p>
-									<br/><br/>
-                                    <p>Development of a native Android 2D game</p>
-                                    <p>&nbsp;&nbsp;- Modern Android L/M/N conventions</p>
-                                    <p>&nbsp;&nbsp;- Firebase & Google Play Services</p>
-                                    <p>Development of a multiplayer game using Javascript / HTML5</p>
-                                    <p>&nbsp;&nbsp;- NodeJS/Express app with user login functionality</p>
-                                    <p>&nbsp;&nbsp;- Analysis platform built with Node, MongoDB, jQuery</p>
-									<p>Meteor application running AngularJS</p>
-									<p>Personal website, several small web-apps, Android apps</p>
+								<td style="vertical-align:middle;">
+									<p>
+										Life is an Android puzzle game I'm actively developing. It's a neat little game based on Conway's Game of Life, and is actually on the Play Store now!
+									</p>
+									<br>
+									<p>
+										Technologies used for this project include native Android, Firebase, as well as Google Play Services implementation.
+									</p>
+									<br>
+									<p>
+										Life is currently in beta on Google Play, and you can <a target="_blank" href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life">check it out here</a>
+									</p>
+									<br><br>
+									<a target="_blank" class="get_on_app_store" href='https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
 								</td>
 								<td>
-									<h2>Education</h2>
-									<p>2014 - Present</p>
-									<br/>
-									<p><b>University of Cincinnati</b></p>
-									<br/>
-									<p>College of Engineering and Applied Science</p>
-									<br/><br/>
-									<p>Bachelor of Science in Computer Science, Class of 2019</p>
-									<br/>
-									<p>Dean’s List</p>
-									<br/>
-									<p>GPA: 3.829 / 4.000</p>
-									<br/><br/><br/>
-
-									<p>2010 - 2014</p>
-									<br/>
-									<p><b>Centerville High Scool</b></p>
-									<br/><br/>
-									<p>GPA: 4.07</p>
-									<br/>
-									<p>Rank: 107th / 715</p>
-									<br/>
-									<p>Graduated with Honors Diploma</p>
-									<br/>
-									<p>Member of National Honors Society</p>
-                                    
-                                    <br><br>
-                                  
-									<h2>Skills</h2>
-									<p><b>Object Oriented Programming: </b>Java, C++, C#, Visual Basic</p>
-									<br>
-									<p><b>Web Development: </b>AngularJS, Meteor, jQuery, HTML, CSS / SASS</p>
-									<br>
-									<p><b>Databases: </b>MySQL, MongoDB</p>
-									<br>
-									<p><b>Mobile Development: </b>Java, C++, C#, Visual Basic</p>
-									<br>
-									<p><b>Software / Other: </b>Agile Development, Git, Jira, Bamboo, Gulp, Windows, Linux, MATLAB</p>
-								</td>
-							</tr>
-							<tr>
-								<td class="center">
-									<h2>Contact</h2>
-									<a href="mailto:andrewbrooke15@gmail.com">andrewbrooke15@gmail.com</a>
-									<br/>
-									<a href="https://github.com/andrewbrooke">github.com/andrewbrooke</a>
-									<br/>
-									<a href="https://stackoverflow.com/cv/andrewbrooke">stackoverflow.com/cv/andrewbrooke</a>
-									<br/>
-									<a href="https://www.linkedin.com/in/andrewbrooke15">linkedin.com/in/andrewbrooke15</a>
-									<br/>
-								</td>
-								<td>
-									<h2>Awards</h2>
-									<p>1st Place at Regional, State, and National levels of Business Professionals of America 2014 Visual Basic programming competition</p>
-									<br/><br/>
-									<p>5th Place / 20 in Miami University 2014 High School Programming Competition</p>
+									<a target="_blank" href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life"><img class="screenshot" src="images/life_screenshot.png"></a>
 								</td>
 							</tr>
 						</table>
-						<br><br><br>
-						<h5><a href="Andrew Brooke - Resume.pdf" download>Download a PDF</a></h5>
 					</div>
 				</div>
-				<div class="divider"></div>
-				<div class="section_wrapper" id="portfolio">
-					<div class="section_content mdl-card mdl-shadow--2dp">
-						<h1>Portfolio</h1>
-						<h2>Life</h2>
-						<p>Life is an Android puzzle game I'm actively developing. It's a neat little game based on Conway's Game of Life, and is actually on the Play Store now!</p>
-                        <p>Technologies used for this project include native Android, Firebase, as well as Google Play Services implementation.</p>
-						<a href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life"><p>Download Here!</p></a>
-<!--                        <a><img class="screenshot mobile gif" src="images/life.gif"/></a>-->
-                        <a href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life"><img class="screenshot mobile" src="images/life.png"/></a>
-						<br /><br />
-						<h2>Dodger.io</h2>
-						<p>Dodger.io is a Javascript game that I'm developing with my roommate. It's a fun little endless runner game with a twist, multiplayer!</p>
-						<p>The game is using the HTML5 Canvas element for client-side rendering, with a websocket connection to our Node.js server.</p>
-                        <p>For this project I also built a backend admin analysis platform with Javascript and jQuery. It accesses the games internal API's to retrieve data and statistics from the MongoDB database.</p>
-						<a href="https://dodger.io"><img class="screenshot" src="images/dodger.PNG"></a>
-						<br /><br />
-						<h2>MyGizmo</h2>
-						<p>A project I worked on while working at Trayak. MyGizmo is a mobile application for Android and iOS that lets you manage and trade your smartphones, and other devices. Some of the technologies I worked on for this project include: native Android development, Java server implementation with MySQL database (Hibernate), Javascript (jQuery), NodeJS.</p>
-						<a href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication"><img class="screenshot" src="images/gizmo.PNG"></a>
+				<div class="mtrl-card">
+					<div class="mtrl-card-header blue">
+						<h1 class="section_subheader">Dodger.io</h1>
+						<h1>Web</h1>
+					</div>
+					<div class="mtrl-card-content">
+						<table>
+							<tr>
+								<td style="vertical-align:middle;">
+									<p>
+										Dodger.io is a Javascript game that I'm developing with my roommate. It's a fun little endless runner game with a twist, multiplayer!
+									</p>
+									<br>
+									<p>
+										The game is using the HTML5 Canvas element for client-side rendering, with a websocket connection to our Node.js server. (Hosted with OpenShift)
+									</p>
+									<br>
+									<p>
+										For this project I also built a backend admin analysis platform with Javascript and jQuery. It accesses the games internal API's to retrieve data and statistics from the MongoDB database.
+									</p>
+									<br><br>
+									<a target="_blank" href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life"><img class="screenshot" src="images/dodger.PNG"></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="mtrl-card">
+					<div class="mtrl-card-header blue">
+						<h1 class="section_subheader">MyGizmo</h1>
+						<h1>Android</h1>
+					</div>
+					<div class="mtrl-card-content">
+						<table>
+							<tr>
+								<td style="vertical-align:middle;">
+									<p>
+										A project I worked on while working at Trayak. MyGizmo is a mobile application for Android and iOS that lets you manage and trade your smartphones, and other devices. Some of the technologies I worked on for this project include: native Android development, Java server implementation with MySQL database (Hibernate), Javascript (jQuery), NodeJS.
+									</p>
+									<br><br>
+									<a href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication"><img class="screenshot" src="images/gizmo.PNG"></a>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>
-		</main>
+		</div>
 	</div>
-
+	
+	<div class="section_wrapper" id="contact">
+		<div class="section_content">
+			<h1 class="section_header">Let's Chat.</h1>
+			<br>
+			<h1 class="section_subheader">The best way to get in touch is to just shoot me an email!</h1>
+			<br>
+			<a href="mailto:andrewbrooke15@gmail.com" style="color:white;" class="contact_link"><h1>andrewbrooke15@gmail.com</h1></a>
+		</div>
+	</div>
 </body>
 
 </html>

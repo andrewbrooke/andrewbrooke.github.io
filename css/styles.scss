@@ -1,0 +1,376 @@
+@import "bourbon/bourbon";
+
+$white: rgba(255, 255, 255, 1);
+$color_blue_bg: rgba(13,71,161 ,1);
+$color_link_hover: rgba(79, 195, 247, 1);
+$color_header_bg: rgba(0, 30, 80,.48);
+$color_mobile_nav_bg: rgba(0, 0, 0, .68);
+
+$color_blue_gradient_1: rgba(21,101,192 ,1);
+$color_blue_gradient_2: rgba(13,71,161 ,1);
+$color_blue_gradient_3: rgba(26,35,126 ,1);
+
+$OpenSans-Regular: OpenSans-Regular;
+$OpenSans-Light: OpenSans-Light;
+
+$url_poly: url(../images/poly.png);
+
+@font-face {
+	font-family: $OpenSans-Regular;
+	src: url(../fonts/Roboto-Regular.ttf) format("truetype");
+}
+@font-face {
+	font-family: $OpenSans-Light;
+	src: url(../fonts/Roboto-Light.ttf) format("truetype");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: $OpenSans-Regular, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+html {
+	width: 100%;
+	height: 100%;
+	color: $white;
+}
+body {
+	width: 100%;
+	height: 100%;
+	color: $white;
+	background: $color_blue_gradient_1;
+}
+
+#intro {
+	background: $url_poly;
+}
+
+#about {
+	background: $color_blue_gradient_1;
+}
+
+#portfolio {
+	background: $color_blue_gradient_2;
+}
+
+#contact {
+	background: $color_blue_gradient_3;
+}
+
+#header {
+	height: 64px;
+	width: 100%;
+	position: fixed;
+	color: $white;
+	background-color: $color_header_bg;
+	z-index: 99;
+	> nav {
+		@include user-select(none);
+		float: right;
+		h4 {
+			color: $white;
+			line-height: 64px;
+			margin-right: 16px;
+			text-decoration: none;
+			display: inline-block;
+			@include transition(all 1.0s);
+			font-family: $OpenSans-Light, sans-serif;
+			&:hover {
+				color: $color_link_hover;
+			}
+			img {
+				height: 24px;
+				vertical-align: middle;
+				margin-right: 4px;
+			}
+		}
+	}
+}
+#logo {
+	line-height: 64px;
+	height: 100%;
+	float: left;
+	margin-left: 18px;
+	
+	img {
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+	}
+	h2 {
+		vertical-align: middle;
+		display: inline-block;
+		color: $white;
+		text-decoration: none;
+	}
+}
+#mobile_nav_toggle {
+	display: none;
+	margin: 3px;
+}
+#mobile_nav {
+	@include transition(all 0.4s ease);
+	z-index: 99;
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $color_mobile_nav_bg;
+	color: $white;
+	text-align: center;
+	display: none;
+	h1 {
+		color: $white;
+		line-height: 64px;
+		text-decoration: none;
+		@include transition(all 1.0s);
+		&:hover {
+			color: $color_link_hover;
+		}
+	}
+	> div {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(1.2);
+	}
+}
+
+.section_wrapper {
+	text-align: center;
+	height: auto;
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.section_content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+//	padding: 92px;
+	z-index: 1;
+	table {
+		table-layout: fixed;
+		width: 100%;
+		table {
+			width: 100%;
+		}
+		td {
+			padding: 16px;
+			vertical-align: top;
+			max-width: 90% !important;
+		}
+	}
+}
+.section_header {
+	font-size: 4em;
+}
+.section_subheader {
+	font-size: 3em;
+}
+
+.mtrl-card {
+	background: $white;
+	border-radius: 2px;
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.54);
+	display: inline-block;
+	vertical-align: top;
+}
+
+.mtrl-card-fill {
+	width: 100%;
+}
+
+.mtrl-card-header.blue {
+	padding: 8px;
+	background: $url_poly;
+}
+
+.mtrl-card-content {
+	padding: 24px;
+	color: rgba(0, 0, 0, 0.54);
+}
+
+.mtrl-button {
+	@include transition(all 0.5s);
+	color: $white;
+	background-color: $color_blue_gradient_3;
+	cursor: pointer;
+	margin: 4px;
+	padding: 12px;
+	border-radius: 2px;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: .8em;
+	min-width: 72px;
+	text-align: center;
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.54);
+	@include user-select(none);
+	
+	&:hover {
+		box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.72);
+	}
+}
+
+
+#me {
+	width: 100%;
+	border-radius: 50%;
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.54);
+}
+
+#portfolio_arrow {
+	width: 10%;
+	cursor: pointer;
+}
+
+#portfolio_controls_container {
+	position: absolute;
+	width: 100%;
+	left:0;
+	height: 100%;
+}
+
+.portfolio_controls {
+	width: 10%;
+    left: 0;
+	top: 30%;
+	position: absolute;
+	cursor: pointer;
+	@include transition(all 0.5s);
+	&:hover {
+    	filter: brightness(80%);
+	}
+}
+
+.portfolio_controls.portfolio_next {
+	right: 0;
+	left: auto;
+}
+
+.get_on_app_store img {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.screenshot {
+	max-width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.team_profile_pic {
+	margin: 12px 0 12px 0;
+	border-radius: 50%;
+	width: 40%;
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.54);
+}
+
+.profile_links {
+	img {
+		width: 10%;
+	}
+}
+
+.contact_link {
+	max-width: 100% !important;
+	h1 {
+		@include transition(all 1.0s);
+		word-wrap: break-word;
+		white-space: normal;
+		&:hover {
+			color: $color_link_hover !important;
+		}
+	}
+}
+
+@media only screen and(max-width: 1218px) {
+	.section_content {
+		width: 80%;
+	}
+}
+
+@media only screen and(max-width: 768px) {
+	.section_content {
+		table {
+			td {
+				display: inline-block;
+			}
+		}
+	}
+	#portfolio_arrow {
+		width: 20%;
+	}
+}
+
+@media only screen and(max-width: 680px), screen and(max-device-width: 700px) {
+	.hide_on_mobile {
+		display: none !important;
+	}
+	#mobile_nav_toggle {
+		display: block;
+		float: right;
+		button:focus {
+			outline: none !important;
+		}
+	}
+	#mobile_nav {
+		display: block;
+	}
+	.section_wrapper {
+		padding-top: 96px;
+		padding-bottom: 24px;
+	}
+	.section_content {
+		padding: 0;
+		width: 90%;
+	}
+	#header > nav {
+		display: none;
+	}
+	.section_content {
+		table {
+			td {
+				display: inline-block;
+			}
+		}
+	}
+	.profile_links {
+		img {
+			width: 20%;
+		}
+	}
+}
+
+// For extremely small screens, the default header logo text size is too big
+@media only screen and(max-width: 400px), screen and(max-device-width: 400px) {
+	#logo {
+		img {
+			height: 70%;
+		}
+		h1 {
+			font-size: 1.5em;
+		}
+	}
+}
+
+.hamburgler-active #mobile_nav {
+	opacity: 1;
+	pointer-events: initial;
+}
+.hamburger .hamburger-inner {
+	background-color: $white !important;
+	&:after {
+		background-color: $white !important;
+	}
+	&:before {
+		background-color: $white !important;
+	}
+}
