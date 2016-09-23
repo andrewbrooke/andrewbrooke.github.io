@@ -263,101 +263,105 @@ body {
   margin-right: auto; }
 
 /* line 263, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
-.screenshot {
+.screenshot, .screenshot_wide {
   max-width: 60%;
   margin-left: auto;
   margin-right: auto; }
 
 /* line 269, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+.screenshot_wide {
+  max-width: 90%; }
+
+/* line 274, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
 .team_profile_pic {
   margin: 12px 0 12px 0;
   border-radius: 50%;
   width: 40%;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.54); }
 
-/* line 277, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+/* line 282, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
 .profile_links img {
   width: 10%; }
 
-/* line 282, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+/* line 287, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
 .contact_link {
   max-width: 100% !important; }
-  /* line 284, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 289, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .contact_link h1 {
     -webkit-transition: all 1s;
     -moz-transition: all 1s;
     transition: all 1s;
     word-wrap: break-word;
     white-space: normal; }
-    /* line 288, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+    /* line 293, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
     .contact_link h1:hover {
       color: #4fc3f7 !important; }
 
 @media only screen and (max-width: 1218px) {
-  /* line 295, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 300, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .section_content {
     width: 80%; } }
 
 @media only screen and (max-width: 768px) {
-  /* line 303, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 308, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .section_content table td {
     display: inline-block; }
-  /* line 308, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 313, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   #portfolio_arrow {
     width: 20%; } }
 
 @media only screen and (max-width: 680px), screen and (max-device-width: 700px) {
-  /* line 314, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 319, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .hide_on_mobile {
     display: none !important; }
-  /* line 317, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 322, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   #mobile_nav_toggle {
     display: block;
     float: right; }
-    /* line 320, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+    /* line 325, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
     #mobile_nav_toggle button:focus {
       outline: none !important; }
-  /* line 324, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 329, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   #mobile_nav {
     display: block; }
-  /* line 327, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 332, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .section_wrapper {
     padding-top: 96px;
     padding-bottom: 24px; }
-  /* line 331, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 336, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .section_content {
     padding: 0;
     width: 90%; }
-  /* line 335, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 340, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   #header > nav {
     display: none; }
-  /* line 340, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 345, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .section_content table td {
     display: inline-block; }
-  /* line 346, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 351, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .profile_links img {
     width: 20%; } }
 
 @media only screen and (max-width: 400px), screen and (max-device-width: 400px) {
-  /* line 355, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 360, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   #logo img {
     height: 70%; }
-  /* line 358, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 363, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   #logo h1 {
     font-size: 1.5em; } }
 
-/* line 364, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+/* line 369, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
 .hamburgler-active #mobile_nav {
   opacity: 1;
   pointer-events: initial; }
 
-/* line 368, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+/* line 373, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
 .hamburger .hamburger-inner {
   background-color: white !important; }
-  /* line 370, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 375, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .hamburger .hamburger-inner:after {
     background-color: white !important; }
-  /* line 373, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
+  /* line 378, C:/Users/Andrew/Documents/SourceTreeRepos/andrewbrooke.github.io/css/styles.scss */
   .hamburger .hamburger-inner:before {
     background-color: white !important; }
 

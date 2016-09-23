@@ -266,6 +266,11 @@ body {
 	margin-right: auto;
 }
 
+.screenshot_wide {
+	@extend .screenshot;
+	max-width: 90%;
+}
+
 .team_profile_pic {
 	margin: 12px 0 12px 0;
 	border-radius: 50%;
