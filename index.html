@@ -69,9 +69,10 @@
 	<div id="mobile_nav">
   		<div>
 			<a style="text-decoration: none" href="#about" class="nav_link"><h1>About Me</h1></a>
+			<a style="text-decoration: none" href="#work" class="nav_link"><h1>Work</h1></a>
 			<a style="text-decoration: none" href="#portfolio" class="nav_link"><h1>Portfolio</h1></a>
 			<a style="text-decoration: none" href="#contact" class="nav_link"><h1>Contact</h1></a>
-			<a style="text-decoration: none" target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h1>Resume</h1></a>
+			<a style="text-decoration: none" target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h1>Download Resume</h1></a>
 		</div>
 	</div>
 	
@@ -81,6 +82,7 @@
 		</div>
 		<nav>
 			<a href="#about" class="nav_link"><h4>About Me</h4></a>
+			<a href="#work" class="nav_link"><h4>Work</h4></a>
 			<a href="#portfolio" class="nav_link"><h4>Porfolio</h4></a>
 			<a href="#contact" class="nav_link"><h4>Contact</h4></a>
 			<a target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h4><img src="images/download.png">Resume</h4></a>
@@ -119,26 +121,55 @@
 	
 	<div class="section_wrapper" id="about">
 		<div class="section_content">
-			<h1 class="section_subheader">About Me</h1>
-			<br>
-			<h3>
-				My name is Andrew Brooke, and I'm an aspiring coder. I'm currently in my third year of school at the University of Cincinnati, studying Computer Science, and am on track to graduate in 2019. I started coding in highschool for fun, and am now interested in pursuing a career as a developer professionally. My favorite languages are Java (Android) and Javascript (NodeJS, Express, MongoDB)
-			</h3>
-			<br>
-			<h3>
-				I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me developing my own projects, playing my favorite video games, or maybe making music. Whatever it may be, I strive to be passionate at what I do.
-			</h3>
-			<br><br>
-			<a href="#portfolio" class="nav_link" style="text-decoration: none;">
-				<div class="mtrl-button">
-					View My Portfolio
+			<div class="mtrl-card">
+				<div class="mtrl-card-header blue">
+					<br>
+					<h1 class="section_header">About Me</h1>
+					<br>
 				</div>
-			</a>
-			<a href="#contact" class="nav_link" style="text-decoration: none;">
-				<div class="mtrl-button">
-					Get in Touch
+				<div class="mtrl-card-content">
+					<p>
+				My name is Andrew Brooke, and I'm an aspiring coder. I'm currently in my third year of school at the University of Cincinnati, studying Computer Science, and am on track to graduate in 2019. I started coding in highschool for fun, and am now interested in pursuing a career as a developer professionally. My favorite languages are Java (Android) and Javascript (NodeJS, Express, MongoDB)</p>
+					<br>
+					<p>I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me developing my own projects, playing my favorite video games, or maybe making music. Whatever it may be, I strive to be passionate at what I do.</p>
 				</div>
-			</a>
+				<div class="mtrl-card-actions">
+					<a href="#portfolio" class="nav_link" style="text-decoration: none;">
+						<div class="mtrl-button">
+							View My Portfolio
+						</div>
+					</a>
+					<a href="#contact" class="nav_link" style="text-decoration: none;">
+						<div class="mtrl-button">
+							Get in Touch
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="section_wrapper" id="work">
+		<div class="section_content">
+			<div class="mtrl-card">
+				<div class="mtrl-card-header blue">
+					<br>
+					<h1 class="section_header">Work Experience</h1>
+					<br>
+				</div>
+				<div class="mtrl-card-content">
+					<h1 class="section_subheader">Trayak LLC</h1>
+					<h1>May 2015 - August 2016</h1>
+					<br>
+					<p>Over the course of two Co-Op terms working at Trayak, a sustainability focused startup in Mason, OH, I was fortunate enough to work on several awesome projects, learning a bunch of new technologies along the way.</p>
+					<br>
+					<p>The first project I was assigned was essentially an administrator dashboard for an app that the company was developing, <a target="_blank" href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication">MyGizmo</a>. Using NodeJS and MongoDB, I built a server platform to collect and store statistics about the app. This received events from the app like user registrations and user logins. Then, I created the visual component of the dashboard, a webpage using HTML, SCSS, and jQuery. Here, I retrieved the app usage statistics from MongoDB, and rendered ChartsJS graphs to view various statistics with ease.</p>
+					<br>
+					<p>The next project I worked on while at Trayak was MyGizmo itself, speficially, the Android client. I got a lot of experience writing native Android code in Java - especially working with Android's Lollipop+ APIs - as well as practicing modern UI design principles in an effort to make the user experience as smooth as possible. I also had experience working with the backend for this app, written in Java (MySQL for database). Here, we implemented several neat social elements for the app, including: a full user to user chat system, Google Cloud Messaging notifications, a custom achievement / point earning system, and user to user transactions using Stripe and PayPal.</p>
+					<br>
+					<p>The last project I worked on at Trayak was a web-app written in AngularJS (PHP and MySQL backend). I hadn't used Angular prior to this, so this was a great learning experience for me. This project was a great opportunity for me to get involved in the full development cycle an application. We used Git for version control, Jira for project management, and Bamboo for continuous integration and deployment. We also followed test-driven development for this project, using Jasmine and Protractor for Unit and end-to-end testing, respectively.</p>
+				</div>
+			</div>
 		</div>
 	</div>
 	
@@ -201,7 +232,7 @@
 										For this project I also built a backend admin analysis platform with Javascript and jQuery. It accesses the games internal API's to retrieve data and statistics from the MongoDB database.
 									</p>
 									<br><br>
-									<a target="_blank" href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life"><img class="screenshot_wide" src="images/dodger.PNG"></a>
+									<a target="_blank" href="https:/dodger.io"><img class="screenshot_wide" src="images/dodger.PNG"></a>
 								</td>
 							</tr>
 						</table>
