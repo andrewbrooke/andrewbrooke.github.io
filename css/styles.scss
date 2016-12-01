@@ -3,12 +3,8 @@
 $white: rgba(255, 255, 255, 1);
 $color_blue_bg:rgba(13,71,161 ,1);
 $color_link_hover: rgba(79, 195, 247, 1);
-<<<<<<< HEAD
 // $color_header_bg: rgba(0, 30, 80,.48);
 $color_header_bg: rgba(0, 0, 0, 0);
-=======
-$color_header_bg: rgba(0, 30, 80,1);
->>>>>>> 3780733d78a3a336c6b489726e21e3f6a6513639
 $color_mobile_nav_bg: rgba(0, 0, 0, .68);
 
 $OpenSans-Regular: OpenSans-Regular;
@@ -64,7 +60,6 @@ body {
 	width: 100%;
 	height: 100%;
 	color: $white;
-<<<<<<< HEAD
 }
 
 #intro {
@@ -75,28 +70,6 @@ body {
 	position: fixed;
 	z-index: -1;
 }
-
-=======
-	background: #EEEEEE;
-}
-
-#intro {
-	background: $url_poly;
-}
-
-//#about {
-//	background: $color_blue_gradient_3;
-//}
-//
-//#work {
-//	background: $color_blue_gradient_1;
-//}
-//
-//#portfolio {
-//	background: $color_blue_gradient_2;
-//}
-//
->>>>>>> 3780733d78a3a336c6b489726e21e3f6a6513639
 #contact {
 	background: $color_blue_bg;
 }
@@ -216,62 +189,6 @@ body {
 }
 .section_subheader {
 	font-size: 3em;
-}
-
-<<<<<<< HEAD
-.profile_links {
-	margin-top: 12px;
-	img {
-		width: 8%;
-=======
-.mtrl-card {
-	background: $white;
-	border-radius: 2px;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	display: inline-block;
-	vertical-align: top;
-	min-width: 312px;
-}
-
-.mtrl-card-fill {
-	width: 100%;
-}
-
-.mtrl-card-header.blue {
-	padding: 8px;
-	background: $url_poly;
-}
-
-.mtrl-card-content {
-	padding: 24px;
-//	color: rgba(0, 0, 0, 0.54);
-	color: #212121;
-}
-
-.mtrl-card-actions {
-	padding: 0 16px 16px 16px;
-}
-
-.mtrl-button {
-	@include transition(all 0.5s);
-	color: $white;
-	background-color: $color_blue_gradient_3;
-	cursor: pointer;
-	margin: 1rem;
-	padding: 12px;
-  	border-radius: 2px;
-	display: inline-block;
-	text-transform: uppercase;
-	font-size: .8em;
-	min-width: 72px;
-	text-align: center;
-	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.54);
-	@include user-select(none);
-
-	&:hover {
-		box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.72);
->>>>>>> 3780733d78a3a336c6b489726e21e3f6a6513639
-	}
 }
 
 #portfolio_arrow {
