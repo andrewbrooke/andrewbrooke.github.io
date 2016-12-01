@@ -7,15 +7,14 @@
 	<title>Andrew Brooke - Developer</title>
 
 	<link type="text/css" href="css/hamburger.css" rel="stylesheet">
-	<link href='css/styles.css' rel='stylesheet' type='text/css'>
-	<link type="text/css" href="lib/slick/slick.css" rel="stylesheet"/>
-	
+	<link href='css/styles.min.css' rel='stylesheet' type='text/css'>
+
 	<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="lib/slick/slick.min.js"></script>
-  
+	<script type="text/javascript" src="lib/jquery.backstretch.min.js"></script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
-			
+
 			$('#mobile_nav_toggle').on('click', function() {
 				$('#mobile_nav_toggle .hamburger').toggleClass('is-active');
 				if (document.body.classList.contains('hamburgler-active')) {
@@ -52,13 +51,8 @@
 				$('#mobile_nav_toggle .hamburger').removeClass('is-active');
 				document.body.classList.remove('hamburgler-active');
 			});
-			
-			$('.portfolio_slider').slick({
-				arrows: true,
-				prevArrow: $('.portfolio_prev'),
-				nextArrow: $('.portfolio_next'),
-  				adaptiveHeight: true
-			});
+
+			$("#parallax").backstretch("images/poly.png");
 
 		});
 	</script>
@@ -68,20 +62,16 @@
 <body>
 	<div id="mobile_nav">
   		<div>
-			<a style="text-decoration: none" href="#about" class="nav_link"><h1>About Me</h1></a>
-			<a style="text-decoration: none" href="#portfolio" class="nav_link"><h1>Portfolio</h1></a>
 			<a style="text-decoration: none" href="#contact" class="nav_link"><h1>Contact</h1></a>
 			<a style="text-decoration: none" target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h1>Resume</h1></a>
 		</div>
 	</div>
-	
+
 	<div id="header">
 		<div id="logo">
-			<a href="#intro" class="nav_link"><h2>ANDREW BROOKE</h2></a>
+			<a href="#intro" class="nav_link hide_on_mobile"><h2>ANDREW BROOKE</h2></a>
 		</div>
 		<nav>
-			<a href="#about" class="nav_link"><h4>About Me</h4></a>
-			<a href="#portfolio" class="nav_link"><h4>Porfolio</h4></a>
 			<a href="#contact" class="nav_link"><h4>Contact</h4></a>
 			<a target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h4><img src="images/download.png">Resume</h4></a>
 		</nav>
@@ -93,152 +83,22 @@
 			</button>
 		</div>
 	</div>
+	<div id="parallax" class="section_wrapper"></div>
 	<div id="intro" class="section_wrapper">
 		<div class="section_content">
-			<table>
-				<tr>
-					<td style="width: 20%; vertical-align: middle;" class="hide_on_mobile">
-						<img id="me" src="images/me.png">
-					</td>
-					<td style="width: 80%">
-						<h1 class="section_header" style="text-align: left;">Andrew Brooke</h1>
-						<h1 class="section_subheader" style="text-align: left;">Fullstack Mobile & Web Developer</h1>
-						<br>
-						<div class="profile_links" style="text-align: left;">
-							<a target="_blank" href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
-							<a target="_blank" href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
-							<a target="_blank" href="https://www.linkedin.com/in/andrewbrooke15"><img src="images/linkedin.png"></a>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<br><br><br>
-			<img href="#about" id="portfolio_arrow" class="nav_link" src="images/chevron-down.png">
-		</div>
-	</div>
-	
-	<div class="section_wrapper" id="about">
-		<div class="section_content">
-			<h1 class="section_subheader">About Me</h1>
-			<br>
-			<h3>
-				My name is Andrew Brooke, and I'm an aspiring coder. I'm currently in my third year of school at the University of Cincinnati, studying Computer Science, and am on track to graduate in 2019. I started coding in highschool for fun, and am now interested in pursuing a career as a developer professionally. My favorite languages are Java (Android) and Javascript (NodeJS, Express, MongoDB)
-			</h3>
-			<br>
-			<h3>
-				I believe that I bring a good variety of skills to the table, and can adapt those skills to whatever job is presented to me. When I’m not working or in school, you can probably find me developing my own projects, playing my favorite video games, or maybe making music. Whatever it may be, I strive to be passionate at what I do.
-			</h3>
-			<br><br>
-			<a href="#portfolio" class="nav_link" style="text-decoration: none;">
-				<div class="mtrl-button">
-					View My Portfolio
-				</div>
-			</a>
-			<a href="#contact" class="nav_link" style="text-decoration: none;">
-				<div class="mtrl-button">
-					Get in Touch
-				</div>
-			</a>
-		</div>
-	</div>
-	
-	<div class="section_wrapper" id="portfolio">
-		<div class="section_content">
-			<br><br><br>
-			<div id="portfolio_controls_container" class="hide_on_mobile">
-				<img class="portfolio_controls portfolio_prev" src="images/chevron-left.png">
-				<img class="portfolio_controls portfolio_next" src="images/chevron-right.png">
+			<h1 class="section_header" style="text-align: left;">Andrew Brooke</h1>
+			<h1 class="section_subheader" style="text-align: left;">Fullstack Mobile &amp; Web Developer</h1>
+			<div class="profile_links" style="text-align: left;">
+				<a target="_blank" href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
+				<a target="_blank" href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
+				<a target="_blank" href="https://www.linkedin.com/in/andrewbrooke15"><img src="images/linkedin.png"></a>
 			</div>
-			<div class="portfolio_slider">
-				<div class="mtrl-card">
-					<div class="mtrl-card-header blue">
-						<h1 class="section_subheader">Life</h1>
-						<h1>Android</h1>
-					</div>
-					<div class="mtrl-card-content">
-						<table>
-							<tr>
-								<td style="vertical-align:middle;">
-									<p>
-										Life is an puzzle game I'm actively developing for Android. It's a neat little game based on Conway's Game of Life, and is on the Google Play Store for beta testing right now.
-									</p>
-									<br>
-									<p>
-										Technologies used for this project include native Android, Firebase, as well as a Google Play Services implementation.
-									</p>
-									<br>
-									<p>
-										Life is currently in beta on Google Play, and you can <a target="_blank" href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life">check it out here</a>
-									</p>
-									<br><br>
-									<a target="_blank" class="get_on_app_store" href='https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
-								</td>
-								<td>
-									<a target="_blank" href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life"><img class="screenshot" src="images/life_screenshot.png"></a>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="mtrl-card">
-					<div class="mtrl-card-header blue">
-						<h1 class="section_subheader">Dodger.io</h1>
-						<h1>Web</h1>
-					</div>
-					<div class="mtrl-card-content">
-						<table>
-							<tr>
-								<td style="vertical-align:middle;">
-									<p>
-										Dodger.io is a Javascript game that I'm developing with my roommate. It's a classic endless runner game with a twist, multiplayer!
-									</p>
-									<br>
-									<p>
-										The game is using the HTML5 Canvas element for client-side rendering, with a websocket connection to our Node.js server. (Hosted with OpenShift)
-									</p>
-									<br>
-									<p>
-										For this project I also built a backend admin analysis platform with Javascript and jQuery. It accesses the games internal API's to retrieve data and statistics from the MongoDB database.
-									</p>
-									<br><br>
-									<a target="_blank" href="https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life"><img class="screenshot_wide" src="images/dodger.PNG"></a>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="mtrl-card">
-					<div class="mtrl-card-header blue">
-						<h1 class="section_subheader">MyGizmo</h1>
-						<h1>Android</h1>
-					</div>
-					<div class="mtrl-card-content">
-						<table>
-							<tr>
-								<td style="vertical-align:middle;">
-									<p>
-										A project I worked on while working at Trayak. MyGizmo is a mobile application for Android and iOS that lets you manage and trade your smartphones, and other devices. Some of the technologies I worked on for this project include: native Android development, Java server implementation with MySQL database (Hibernate), Javascript (jQuery), NodeJS.
-									</p>
-									<br><br>
-									<br><br>
-									<a target="_blank" class="get_on_app_store" href='https://play.google.com/store/apps/details?id=io.github.andrewbrooke.life&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
-								</td>
-								<td>
-									<a target="_blank" href="https://play.google.com/store/apps/details?id=com.trayak.mygizmoandroidapplication"><img class="screenshot_wide" src="images/gizmo.PNG"></a>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			</div>
+			<!-- <img href="#about" id="portfolio_arrow" class="nav_link" src="images/chevron-down.png"> -->
 		</div>
 	</div>
-	
 	<div class="section_wrapper" id="contact">
 		<div class="section_content">
 			<h1 class="section_header">Let's Chat.</h1>
-			<br>
-			<h1 class="section_subheader">The best way to get in touch is to just shoot me an email!</h1>
 			<br>
 			<a href="mailto:andrewbrooke15@gmail.com" style="color:white;" class="contact_link"><h1>andrewbrooke15@gmail.com</h1></a>
 		</div>
