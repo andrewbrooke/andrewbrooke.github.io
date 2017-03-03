@@ -208,6 +208,17 @@ body {
 	}
 }
 
+.profile_links {
+    img {
+        margin-right: 16px;
+    		@include transition(all 0.5s);
+		&:hover {
+            -webkit-filter: drop-shadow(0 5px 5px #000);
+            filter: drop-shadow(0 5px 5px #000);
+		}
+    }
+}
+
 @media only screen and(max-width: 1218px) {
 	.section_content {
 		width: 80%;
