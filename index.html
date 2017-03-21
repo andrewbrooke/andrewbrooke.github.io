@@ -8,10 +8,11 @@
 
 	<link type="text/css" href="css/hamburger.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css" />
 	<link href='css/styles.min.css' rel='stylesheet' type='text/css'>
 
 	<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="lib/jquery.backstretch.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -34,8 +35,8 @@
 				e.preventDefault();
 				var href = $(this).attr('href');
 
-				$('#header nav a h4').removeClass('active');
-				$('#header nav a[href="' + href + '"] h4').addClass('active');
+				$('#header nav a h6').removeClass('active');
+				$('#header nav a[href="' + href + '"] h6').addClass('active');
 
 				var animationTime = 0;
 				if ($(window).width() > 680)
@@ -53,7 +54,16 @@
 				document.body.classList.remove('hamburgler-active');
 			});
 
-			$("#parallax").backstretch("images/poly.png");
+            // Fix background jump on mobile
+            var $w = $(window);
+            var $sections = $('.content');
+            if ((/Android|iPhone|iPad|iPod|BlackBerry/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
+                $w.resize(sizeBackground);
+                sizeBackground();
+            }
+            function sizeBackground() {
+                $sections.css("min-height", screen.height);
+            }
 
 		});
 	</script>
@@ -61,40 +71,140 @@
 </head>
 
 <body>
-	<div id="mobile_nav">
-  		<div>
-			<a style="text-decoration: none" target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h1>Download Resume</h1></a>
-		</div>
-	</div>
-
 	<div id="header">
 		<div id="logo">
-			<a href="#intro" class="nav_link hide_on_mobile"><h2>ANDREW BROOKE</h2></a>
+			<a href="#intro" class="nav_link hide_on_mobile"><h4>ANDREW BROOKE</h4></a>
 		</div>
-		<nav>
-			<a target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h4><img src="images/download.png">Resume</h4></a>
+		<nav class="no_mobile">
+			<a class="nav_link" href="#projects"><h6>Experience</h6></a>
+			<a target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h6><img src="images/download.png">Resume</h6></a>
 		</nav>
-		<div id="mobile_nav_toggle">
-			<button class="hamburger hamburger--squeeze" type="button">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
-			</button>
-		</div>
 	</div>
-	<div id="parallax" class="section_wrapper"></div>
-	<div id="intro" class="section_wrapper">
-		<div class="section_content">
-			<h1 class="section_header" style="text-align: left;">Andrew Brooke</h1>
-			<h1 class="section_subheader" style="text-align: left;">Fullstack Mobile &amp; Web Developer</h1>
-            <br />
-			<div class="profile_links" style="text-align: left;">
-				<a target="_blank" href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
-				<a target="_blank" href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
-				<a target="_blank" href="https://www.linkedin.com/in/andrewbrooke15"><img src="images/linkedin.png"></a>
-			</div>
-		</div>
-	</div>
+	<div id="parallax" class="content"></div>
+	<section id="intro" class="content">
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <h1>Andrew Brooke</h1>
+                    <h2>Mobile &amp; Web Developer</h2>
+                </div>
+                <br class="on_mobile" />
+                <br class="on_mobile" />
+                <div class="column">
+                    <div class="profile_links">
+                        <a target="_blank" href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
+                        <a target="_blank" href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/andrewbrooke15"><img src="images/linkedin.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</section>
+    <section id="projects" class="content">
+        <div class="container">
+            <!-- TODO: add details in popup container? -->
+            <h1>My Projects</h1>
+            <div class="row">
+                <a href="https://firestreamapp.com" target="_blank" class="card" id="card-firestream">
+                    <h1>Firestream</h1>
+                    <h6>A social music playlist builder powered by Spotify ♫</h6>
+                    <div class="card-footer">
+                        <div class="tag">
+                            mobile
+                        </div>
+                        <div class="tag">
+                            Android
+                        </div>
+                    </div>
+                </a>
+                <a href="https://andrewbrooke.github.io/Life/" target="_blank" class="card" id="card-life">
+                    <h1>Life</h1>
+                    <h6>A puzzle game modeled after Conway's Game of Life</h6>
+                    <div class="card-footer">
+                        <div class="tag">
+                            mobile
+                        </div>
+                        <div class="tag">
+                            Android
+                        </div>
+                        <div class="tag">
+                            algorithms
+                        </div>
+                    </div>
+                </a>
+                <a href="https://github.com/andrewbrooke/github-lang-getter" target="_blank" class="card" id="card-github-lang-getter">
+                    <h1>github-lang-getter</h1>
+                    <h6>Node.JS module to retrieve statistics about your Github repos</h6>
+                    <div class="card-footer">
+                        <div class="tag">
+                            open-source
+                        </div>
+                        <div class="tag">
+                            web
+                        </div>
+                        <div class="tag">
+                            Node.JS
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <br /><br />
+            <h1>Places I've Worked</h1>
+            <div class="row">
+                <a href="http://trayak.com" target="_blank" class="card" id="card-trayak">
+                    <h1>Trayak</h1>
+                    <h6>May 2015 - Aug 2016</h6>
+                    <div class="card-footer">
+                        <div class="tag">
+                            startup
+                        </div>
+                        <div class="tag">
+                            Android
+                        </div>
+                        <div class="tag">
+                            Node.JS
+                        </div>
+                        <div class="tag">
+                            AngularJS
+                        </div>
+                    </div>
+                </a>
+                <a href="https://syntonic.io" target="_blank" class="card" id="card-syntonic">
+                    <h1>Syntonic</h1>
+                    <h6>Oct 2016 - Now</h6>
+                    <div class="card-footer">
+                        <div class="tag">
+                            startup
+                        </div>
+                        <div class="tag">
+                            entrepreneurship
+                        </div>
+                        <div class="tag">
+                            Android
+                        </div>
+                        <div class="tag">
+                            web
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.kinetic-vision.com/" target="_blank" class="card" id="card-KV">
+                    <h1>Kinetic Vision</h1>
+                    <h6>Jan 2017 - Now</h6>
+                    <div class="card-footer">
+                        <div class="tag">
+                            iOS
+                        </div>
+                        <div class="tag">
+                            Unity
+                        </div>
+                        <div class="tag">
+                            augmented-reality
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
