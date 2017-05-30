@@ -78,7 +78,7 @@
                     var langOptions = ['SCSS', 'JavaScript', 'Java', 'JSON', 'HTML'];
                     for (var key in data) {
                         if (langOptions.indexOf(key) > -1) {
-                            results[key] = data[key];
+                            results[key] = data[key].commits;
                         }
                     }
 
@@ -100,7 +100,7 @@
                         data: {
                             labels: labels,
                             datasets: [{
-                                label: '# of bytes',
+                                label: '# of commits',
                                 data: data,
                                 backgroundColor: [
                                     'rgba(0,188,212 ,1)',
@@ -141,7 +141,7 @@
                                 display: true,
                                 fontColor: '#fff',
                                 fontSize: 24,
-                                text: 'My Programming Language Use, in Bytes'
+                                text: 'My Programming Language Use, in Commits'
                             }
                         }
                     });
