@@ -18,8 +18,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 
-			$('#mobile_nav_toggle').on('click', function() {
-				$('#mobile_nav_toggle .hamburger').toggleClass('is-active');
+			$('#mobile-nav-toggle').on('click', function() {
+				$('#mobile-nav-toggle .hamburger').toggleClass('is-active');
 				if (document.body.classList.contains('hamburgler-active')) {
 					document.body.classList.remove('hamburgler-active');
 				} else {
@@ -32,7 +32,7 @@
 			}, false);
 
 			var animating = false;
-			$('.nav_link').on('click', function(e) {
+			$('.nav-link').on('click', function(e) {
 				e.preventDefault();
 				var href = $(this).attr('href');
 
@@ -51,7 +51,7 @@
 				}, animationTime, function() {
 					animating = false;
 				});
-				$('#mobile_nav_toggle .hamburger').removeClass('is-active');
+				$('#mobile-nav-toggle .hamburger').removeClass('is-active');
 				document.body.classList.remove('hamburgler-active');
 			});
 
@@ -84,7 +84,7 @@
 
                     console.log(results);
 
-                    $('#chartHeader').show();
+                    $('#chart-header').show();
 
                     var ctx = $('#chart');
                     var labels = Object.keys(results);
@@ -159,10 +159,10 @@
 <body>
 	<div id="header">
 		<div id="logo">
-			<a href="#intro" class="nav_link hide_on_mobile"><h4>ANDREW BROOKE</h4></a>
+			<a href="#intro" class="nav-link hide-on-mobile"><h4>ANDREW BROOKE</h4></a>
 		</div>
-		<nav class="no_mobile">
-			<a class="nav_link" href="#projects"><h6>Experience</h6></a>
+		<nav class="no-mobile">
+			<a class="nav-link" href="#projects"><h6>Experience</h6></a>
 			<a target="_blank" href="Andrew%20Brooke%20-%20Resume.pdf"><h6><img src="images/download.png">Resume</h6></a>
 		</nav>
 	</div>
@@ -174,10 +174,10 @@
                     <h1>Andrew Brooke</h1>
                     <h2>Mobile &amp; Web Developer</h2>
                 </div>
-                <br class="on_mobile" />
-                <br class="on_mobile" />
+                <br class="on-mobile" />
+                <br class="on-mobile" />
                 <div class="column">
-                    <div class="profile_links">
+                    <div class="profile-links">
                         <a target="_blank" href="https://stackoverflow.com/users/2278598/andrew-brooke"><img src="images/stackoverflow.png"></a>
                         <a target="_blank" href="https://github.com/andrewbrooke"><img src="images/github.png"></a>
                         <a target="_blank" href="https://www.linkedin.com/in/andrewbrooke15"><img src="images/linkedin.png"></a>
@@ -186,14 +186,14 @@
             </div>
             <br /><br /><br />
             <div class="row">
-                <div class="chart_wrapper">
+                <div class="chart-wrapper">
                     <canvas id="chart"></canvas>
                     <br />
                 </div>
             </div>
             <br />
             <div class="row">
-                <h6 id="chartHeader" class="center">The above data is pulled from my Github repositories, using a Node.JS module I wrote, <a href="https://github.com/andrewbrooke/github-lang-getter" target="_blank">github-lang-getter</a></h6>
+                <h6 id="chart-header" class="center">The above data is pulled from my Github repositories, using a Node.JS module I wrote, <a href="https://github.com/andrewbrooke/github-lang-getter" target="_blank">github-lang-getter</a></h6>
             </div>
         </div>
 	</section>
@@ -284,7 +284,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="https://www.kinetic-vision.com/" target="_blank" class="card" id="card-KV">
+                <a href="https://www.kinetic-vision.com/" target="_blank" class="card" id="card-kv">
                     <h1>Kinetic Vision</h1>
                     <h6>Jan 2017 - May 2017</h6>
                     <div class="card-footer">
